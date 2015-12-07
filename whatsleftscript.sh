@@ -25,7 +25,7 @@ pandoc -t html -i whatsleft.org -o tmp.html
 sed -i 's/<h2>/<h2 style="margin-top: 2em; font-size: 1.25em; font-family: helvetica, arial, serif;" class="title">/' $inputfile
 
 #add H1 formatting
-sed -i 's/<h1>/<h1 style="margin: 1.5em 0 0 0; font-size: 1.5em; font-family: helvetica, arial, serif; text-transform: uppercase; color: #999999;">/' $inputfile
+sed -i 's/<h1>/<\/td><\/tr><\/table><\/center><br \/><\/div><\/div><div style="border-bottom: 1px solid #cccccc;"><\/div><\/div><div class="section"><div class="mobileMargins" style="margin: 0 1em;"><div class="section-content" style="margin: 3em 0 3em 0;"><center><table cellspacing="0" cellpadding="0" border="0" style="table-layout: fixed;"><tr><td width="500" style="text-align: left;"><h1 style="margin: 1.5em 0 0 0; font-size: 1.5em; font-family: helvetica, arial, serif; text-transform: uppercase; color: #999999;">/' $inputfile
 
 #add H1 end formatting
 sed -i 's/<\/h1>/<\/h1><div class="article" style="margin-bottom: 1.5em;">/' $inputfile
