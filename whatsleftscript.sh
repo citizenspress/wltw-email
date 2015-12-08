@@ -6,6 +6,7 @@
 # Leftnews is news and views from the left
 
 # REMINDER: input file name: whatsleft.org
+# REMINDER: image links are preceded with an "!"
 
 # Needed programs include sed, pandoc, bash
 
@@ -34,10 +35,18 @@ sed -i 's/<\/h1>/<\/h1><div class="article" style="margin-bottom: 1.5em;">/' $in
 sed -i 's/<p>/<p style="margin-bottom: 1em; line-height: 1.5em; font-family: helvetica, arial, serif;">/' $inputfile
 
 #add URL style
-sed -i -e '/<a href=/ s/<p style="margin-bottom: 1em; line-height: 1.5em; font-family: helvetica, arial, serif;">/<p style="margin: 0 0 0.5em 0; line-height: 1.25em; font-family: helvetica, arial, serif;">More: / ; s/<a href="/<a style="color: #990000;" href="/' $inputfile
+sed -i -e '/<a href=/ s/<p style="margin-bottom: 1em; line-height: 1.5em; font-family: helvetica, arial, serif;">/<p style="margin: 0 0 0.5em 0; line-height: 1.25em; font-family: helvetica, arial, serif;">/ ; s/<a href="/<a style="color: #990000;" href="/' $inputfile
 
 #remove excess formatting added
 sed -i 's/class="uri".*<\/a>/>/ ; s/<\/p>/<\/a><\/p>/' $inputfile
+
+#Add image formatting
+
+sed -i -e '/\.gif/ s/<p style="margin-bottom: 1em; line-height: 1.5em; font-family: helvetica, arial, serif;">!/<p style="margin-bottom: 1em; line-height: 1.5em; font-family: helvetica, arial, serif;"> <img src="/' $inputfile
+
+sed -i -e '/\.gif/ s/<\/a><\/p>/" style="display: block;border: none;outline: none;-ms-interpolation-mode: bicubic;max-width: 500px;width: 100%;margin-left: auto;margin-right: auto;height: auto;font-size: 14px;font-weight: bold;line-height: 100%;text-decoration: none;text-transform: capitalize;"><\/p>/' $inputfile
+
+
 
 #add pre and post text and rename
 cat whatsleftpreamble.html $inputfile whatsleftpostamble.html >> tmp1.html && mv tmp1.html whatsleft.html
