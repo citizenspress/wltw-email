@@ -3,7 +3,7 @@
 # REMINDER: URLs need to be before name of link in org/text file
 # For example:
 # http://leftnews.org
-# Leftnews is news and views from the left
+# Leftnews is THE news and views from the left
 
 # Works under linux pandoc version 1.16.0.2
 
